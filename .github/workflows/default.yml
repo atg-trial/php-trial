@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   call-workflow-passing-data:
-    uses: atg-trial/.github/.github/workflows/aboitiz-ci.yml@main
+    uses: atg-trial/ci-template/.github/workflows/aboitiz-ci.yml@main
     with:
       config-path: .github/labeler.yml
     secrets: inherit
