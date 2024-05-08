@@ -15,16 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  snyk-code:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Snyk CLI  # Installs the Snyk CLI tool
-        run: | 
-          npm install -g snyk
-      - name: Run Snyk Code scan  # Runs Snyk Code to scan for vulnerabilities
-        run: snyk code test --severity-threshold=medium
-        
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  call-workflow-passing-data:
+    uses: atg-trial/.github/.github/workflows/aboitiz-ci.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets: inherit
